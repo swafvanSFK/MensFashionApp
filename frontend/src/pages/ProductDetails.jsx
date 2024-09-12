@@ -139,17 +139,18 @@ const ProductDetails = () => {
         <Box className="dark:bg-gray-700">
           <Navbar logo={logoImgBlack} textColor={"text-black"} dark="dark:bg-gray-900" fontColor={"black"} navBg={"bg-white"} borderColor={"border-black"}/>
           <Divider />
-          <Container maxWidth="lg" sx={{ paddingY: 4 }}>
+          <Container  sx={{ paddingY: 4 }}>
             <Box className="border" sx={{ padding: 3 }}>
               <Grid container spacing={4}>
+
                 {/* Product Images */}
-                <Grid item xs={12} md={6} className="flex gap-3">
+                <Grid item xs={12} md={6} className="flex justify-center gap-3">
                   <Box sx={{ textAlign: "center", display: "flex", justifyContent: "center", }} >
-                    <img src={getProduct?.images[index]} alt="Product" style={{ borderRadius: "8px", minWidth: "100%",maxWidth:'100%' }} />
+                    <img className="rounded-lg min-w-[100px] max-w-[500px]" src={getProduct?.images[index]} alt="Product" style={{ borderRadius: "8px", minWidth: "100%",maxWidth:'100%' }} />
                   </Box>
                   <Box sx={{ display: "flex", justifyContent: "end", gap: 1, marginTop: 5, }} className='flex-col'>
                     {getProduct?.images?.map((item, index) => (
-                      <img onMouseOver={()=>handleImage(index)} key={index} src={item} alt="Thumbnail 1" className="border" style={{   borderRadius: "8px",   width: "70px",   height: "70px",   objectFit: "contain",   padding: "5px", }} /> ))}
+                      <img onMouseOver={()=>handleImage(index)} key={index} src={item} alt="Thumbnail 1" className="border rounded-md w-[70px] h-[70px] object-contain md:p-[5px] lg:p-[5px]" /> ))}
                   </Box>
                 </Grid>
 
@@ -225,23 +226,27 @@ const ProductDetails = () => {
                 </Box>
               ))}
             </Box>}
-            <Box className="dark:text-white" sx={{ marginTop: 5 }}>
-              <Typography variant="h6">Your Rating</Typography>
-              <Rating name="simple-controlled" value={value} onChange={(event, newValue) => { setValue(newValue); }} />
-            </Box>
-            <Box  className="dark:text-white" sx={{ marginTop: 3 }}>
-              <Typography  mb={2} variant="h6">Your Comment</Typography>
-              <TextField
-              onChange={(e)=>setReview(e.target.value)}
-                sx={{...(colorTheme === "dark" ? customStyles : {}),"& .MuiOutlinedInput-root": {borderRadius: "0px","& fieldset": {borderColor: colorTheme === "dark" ? "#fff" : "#000",},"&:hover fieldset": {borderColor: colorTheme === "dark" ? "#ddd" : "#333",},"&.Mui-focused fieldset": {borderColor: colorTheme === "dark" ? "#aaa" : "#666"}},marginBottom: "10px",}} label="Comment" fullWidth multiline rows={5}/>
-              <MyButton onClick={handleReview} $color="true">Add Review</MyButton>
-            </Box>
-            <Box className="dark:text-white" sx={{ marginTop: 3 }}>
-              <Typography sx={{ fontSize: "25px", marginBottom: "20px" }}>Similiar products</Typography>
-              <Box className="flex lg:justify-center flex-wrap gap-5">
-                {similiarProducts.map((product, index) => (
-                    <Card key={index} image={product?.images[0]} name={product?.productName} brand={product?.brand} offerPrice={product?.discountedPrice} discount={product?.discountPercentage} salePrice={product?.price}/>
-                ))}
+            <Box className='px-2'>
+              <Box className="dark:text-white" sx={{ marginTop: 5 }}>
+                <Typography variant="h6">Your Rating</Typography>
+                <Rating name="simple-controlled" value={value} onChange={(event, newValue) => { setValue(newValue); }} />
+              </Box>
+              <Box  className="dark:text-white" sx={{ marginTop: 3 }}>
+                <Typography  mb={2} variant="h6">Your Comment</Typography>
+                <TextField
+                onChange={(e)=>setReview(e.target.value)}
+                  sx={{...(colorTheme === "dark" ? customStyles : {}),"& .MuiOutlinedInput-root": {borderRadius: "0px","& fieldset": {borderColor: colorTheme === "dark" ? "#fff" : "#000",},"&:hover fieldset": {borderColor: colorTheme === "dark" ? "#ddd" : "#333",},"&.Mui-focused fieldset": {borderColor: colorTheme === "dark" ? "#aaa" : "#666"}},marginBottom: "10px",}} label="Comment" fullWidth multiline rows={5}/>
+                <MyButton onClick={handleReview} $color="true">Add Review</MyButton>
+              </Box>
+              <Box className="dark:text-white" sx={{ marginTop: 3 }}>
+                <Typography sx={{ fontSize: "25px", marginBottom: "20px" }}>Similiar products</Typography>
+                <Grid container className="flex flex-col justify-center flex-wrap gap-2">
+                  {similiarProducts.map((product, index) => (
+                    <Grid key={index}>
+                      <Card  image={product?.images[0]} name={product?.productName} brand={product?.brand} offerPrice={product?.discountedPrice} discount={product?.discountPercentage} salePrice={product?.price}/>
+                    </Grid>
+                  ))}
+                </Grid>
               </Box>
             </Box>
           </Container>

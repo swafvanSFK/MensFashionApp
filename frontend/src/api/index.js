@@ -1,5 +1,5 @@
-const backendDomain = "https://mensfashionapp.onrender.com/"
-//"http://localhost:8089/"
+const backendDomain = "http://localhost:8089/"
+//https://mensfashionapp.onrender.com/
 const summeryApi = {
   // User APIs
   sendMail: {

@@ -28,7 +28,7 @@ const TopProducts = () => {
       </div>
       <Grid
         container
-        className="mt-8 sm:px-20 lg:px-32 mx-auto text-black flex flex-wrap justify-evenly lg:gap-5 gap-3"
+        className="mt-8 sm:px-20 lg:px-32 mx-auto text-black flex flex-wrap justify-center lg:gap-5 gap-3"
       >
         {filterOnecategory.map((item, index) => (
           <Box key={index}>
