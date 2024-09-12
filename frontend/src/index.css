@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define CSS Variables */
+:root {
+  --font-family-primary: "Cabin", sans-serif;
+  --font-family-secondary: "Cabin", sans-serif;
+  --color-background-primary: white;
+  --color-background-secondary: #269fb7;
+  --color-text-primary: #333;
+  --color-text-secondary: white;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    font-family: var(--font-family-primary);
+
+}
+
+html,
+body {
+  font-family: var(--font-family-primary);
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  overflow:hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #269FB7;
+}  
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.my-container {
+  padding: 0 180px;
+}
+
+.bg-secondary-color {
+  background-color: #269fb7;
+}
+
+.text-secondary-color {
+  color: #269fb7;
+}
+
+/* Background for Homepage */
+#home {
+  height: calc(100vh);
+  background-image: url("./assets/HomePage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Background for Homepage in dark mode */
+#home-dark {
+  height: 100vh;
+  background-image: url("./assets/HomePage-removebg-preview.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+#testimonial-component {
+  background: url("./assets/backgroundImg_2.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#testimonials {
+  background: url("./assets/backgroundt_testimonial.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#bg-2 {
+  background: url("./assets/backgroundt_testimonial_2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#about-header-bg {
+  background: url("./assets/about_bg_2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+#about,#addProduct{
+  background: url('./assets/about_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Background for contact header */
+#contact-header-bg{
+  background : url('./assets/contact_header_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:top;
+}
+
+/* Background for contact */
+#contact{
+  background: url('./assets/contact-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Hover effect for AdminPanel lists */
+#admin-panel:hover{
+  background-color : #269FB7;
+  color : white;
+  transition: ease-in-out 0.2s;
+}
+
+/* Active class */
+.active{
+  background-color : #269FB7;
+  color : white;
+  transition: ease-in-out 0.2s;
+}
