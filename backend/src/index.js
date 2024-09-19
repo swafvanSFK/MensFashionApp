@@ -10,9 +10,9 @@ import cookieParser from 'cookie-parser'
 const app = express();
 
 // Set up cors origin
-//http://localhost:5173
+//https://mensfashionapp-1.onrender.com
 const corsOptions = {
-  origin : ['https://mensfashionapp-1.onrender.com'],
+  origin : ['http://localhost:5173'],
   credentials: true,
   methods: 'GET,POST,PUT,DELETE',
 }

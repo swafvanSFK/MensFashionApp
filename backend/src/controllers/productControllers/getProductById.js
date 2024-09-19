@@ -13,3 +13,4 @@ const getProductById = async (req, res) => {
 };
 
 export default getProductById;
+ 

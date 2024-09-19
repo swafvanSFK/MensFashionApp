@@ -7,7 +7,7 @@ const getOrderByIdController = async (req, res) => {
   if (order) {
     res.status(200).json(order);
   } else {
-    res.status(404).json({ message: "Order not found" });
+    return res.status(404).json({ message: "Order not found" });
   }
   
 };

@@ -32,7 +32,7 @@ const orderSchema = mongoose.Schema(
     },
     orderStatus : {
       type : String, 
-      enum : [ "Shipped", "Delivered", "Canceled","Refunded", "Returned"],
+      enum : [ "Shipped", "Delivered", "Canceled", "Refunded", "Returned"],
       default : "Shipped"
     },
     itemsPrice: { type: Number, required: true },
@@ -41,8 +41,10 @@ const orderSchema = mongoose.Schema(
     totalPrice: { type: Number, required: true },
     isPaid: { type: Boolean, required: true, default: false },
     paidAt: { type: Date },
-    isDelivered: { type: Boolean, required: true, default: false },
     deliveredAt: { type: Date },
+    canceledAt: { type: Date },
+    refundedAt: { type: Date },
+    returnedAt: { type: Date },
   },
   { timestamps: true }
 );

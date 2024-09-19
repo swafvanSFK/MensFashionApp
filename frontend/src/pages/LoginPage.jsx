@@ -19,7 +19,7 @@ import { useUserData } from "../store/userStore.jsx";
 import ResetPassword from "../components/ResetPassword.jsx";
 
 
-const LoginForm = () => {
+const LoginForm = () => { 
 
   const { openLogin, setOpenLogin } = useOpenLogin();
   const { setOpenSignUp } = useOpenSignUp();
@@ -35,7 +35,7 @@ const LoginForm = () => {
     setOpenSignUp(); 
   };
 
-const email =  watch('email')
+  const email =  watch('email')
 
   const onSubmit = async (data) => {
     try {
@@ -69,7 +69,6 @@ const email =  watch('email')
     const auth = getAuth(app)
     const result = await signInWithPopup(auth, provider)  
     const response = await axios.post(summeryApi.loginWithGoogle.url,{name:result.user.displayName,email : result.user.email},{withCredentials:true})
-    console.log(response.data.message);
     if(response.data.success){
       setOpenLogin()
       toast.success(response.data.message)

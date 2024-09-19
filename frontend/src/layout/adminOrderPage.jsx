@@ -11,7 +11,7 @@ const AdminOrderPage = () => {
     useEffect(()=>{
         const fetchAllOrders = async () => {
             try {
-                const response = await axios.get(summeryApi.getAllOrders.url)
+                const response = await axios.get(summeryApi.getAllOrders.url,{withCredentials:true})
                 setAllOrders(response.data)
                 
             } catch (error) {
@@ -26,8 +26,7 @@ const AdminOrderPage = () => {
   return (
     <div>
         <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Orders <span className="text-sm text-gray-600">(15 Orders found)</span></h1>
-
+      <h1 className="text-2xl font-bold mb-4">All Orders : {allOrders.length}</h1>
       <Box aria-label="Medium-sized button group"  className="mb-4 flex gap-10">
         <Typography className='cursor-pointer border-b-4 border-b-[#269FB7]'>All orders</Typography>
         <Typography className='cursor-pointer border-b-4 border-transparent hover:border-b-[#269FB7]'>Completed</Typography>
@@ -48,7 +47,7 @@ const AdminOrderPage = () => {
           </tr>
         </thead>
         <tbody>
-          {allOrders.map((order, index) => (
+          {allOrders?.map((order, index) => (
             <tr key={index} className="border-b">
               <td className="py-2 px-4">{index + 1}</td>
               <td className="py-2 px-4">{order?.paymentResult?.id}</td>
@@ -58,9 +57,9 @@ const AdminOrderPage = () => {
               <td className="py-2 px-4">₹{order.totalPrice}</td>
               <td className="py-2 px-4">
                 <span className={`py-1 px-3 rounded-full text-sm 
-                  ${order.orderStatus === 'Complete' ? 'bg-green-100 text-green-700' : 
-                  order.orderStatus === 'Shipped' ? 'bg-red-100 text-yellow-700' : 'bg-red-100 text-red-700'}`}>
-                  {order.orderStatus}
+                  ${order.orderStatus === 'Canceled' ? 'bg-red-200 text-red-700' : 
+                  order.orderStatus === 'Shipped' ? 'bg-orange-200 text-orange-700' : 'bg-red-100 text-red-700'}`}>
+                  {order.orderStatus} 
                 </span>
               </td>
             </tr>
